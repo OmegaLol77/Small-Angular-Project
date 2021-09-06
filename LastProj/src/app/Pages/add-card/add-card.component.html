@@ -1,0 +1,43 @@
+<mat-card>
+    <p>
+        <mat-toolbar fxLayout fxLayoutAlign="center center">
+            <div>
+                <span>Add Page</span>
+            </div>
+        </mat-toolbar>
+        <mat-card-actions fxLayout fxLayoutAlign="end">
+            <button id="number-2" mat-button class="btn btn-primary-outline pull-right"
+                (click)="btnClick('Pages/main-page');">Back</button>
+            <div style="margin-right:20px"></div>
+        </mat-card-actions>
+    </p>
+    <mat-card-subtitle></mat-card-subtitle>
+</mat-card>
+
+<div style="margin-top:20px"></div>
+
+<mat-card id="number-0" style="margin-left:20em; margin-right:20em;">
+    <mat-card-title fxLayout fxLayoutAlign="center center">Card Information</mat-card-title>
+    <form class="example-form" style="margin-left:35px">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Please Enter Card Title:</mat-label>
+            <input matInput placeholder="Title" value="Title">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." style="height: 200px;"></textarea>
+        </mat-form-field>
+    </form>
+    <div style="margin-left:2.55em;">
+        <p>Priority:</p>
+        <mat-slider style="margin-right:20px" thumbLabel [displayWith]="formatLabel" tickInterval="1" step="1" min="1"
+            max="5" aria-label="units">
+        </mat-slider>
+    </div>
+    <mat-card-actions fxLayout fxLayoutAlign="end">
+        <button id="number-1" mat-button class="btn btn-primary-outline pull-right"
+            (click)="btnClick('Pages/main-page');">Save</button>
+        <div style="margin-right:20px"></div>
+    </mat-card-actions>
+</mat-card>
