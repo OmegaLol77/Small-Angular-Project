@@ -25,7 +25,7 @@ export class CardService {
     return this.httpClient.get<Card[]>("http://localhost:8084/card/getAllCards/");
   }
 
-  public createCard(card: Card): Observable<any> {
+  public createCard(card: Card): Observable<Card> {
     return this.httpClient.post<Card>("http://localhost:8084/card/createCard/", card, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -33,16 +33,16 @@ export class CardService {
     });
   }
 
-  public updateCard(card: Card): Observable<any> {
-    return this.httpClient.put<any>(`${'http://localhost:8084/card'}/${card.id}/${'updateCard/'}`, card, {
+  public updateCard(card: Card): Observable<boolean> {
+    return this.httpClient.put<boolean>(`${'http://localhost:8084/card'}/${card.id}/${'updateCard/'}`, card, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     });
   }
-  public deleteCard(id?: number): Observable<any> {
+  public deleteCard(id?: number): Observable<boolean> {
 
-    return this.httpClient.delete<any>(`${'http://localhost:8084/card'}/${id}/${'deleteCard/'}`);
+    return this.httpClient.delete<boolean>(`${'http://localhost:8084/card'}/${id}/${'deleteCard/'}`);
   }
   public getCardSelected() {
     return this.cardSelected;
