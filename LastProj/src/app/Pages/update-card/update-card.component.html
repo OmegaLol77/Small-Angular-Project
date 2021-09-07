@@ -15,18 +15,18 @@
     <form class="example-full-width" style="margin:auto;">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Please Enter Card Title:</mat-label>
-            <input matInput placeholder="Title" [value]="cardSelected.title">
+            <input matInput placeholder="Title" [value]="cardSelected.title" (change)="updateTitle($event)">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Leave a comment</mat-label>
             <textarea maxlength="10000" matInput placeholder="Ex. It makes me feel..."
-                [value]="cardSelected.body"></textarea>
+                [value]="cardSelected.body" (change)="updateTextBody($event)"></textarea>
         </mat-form-field>
     </form>
     <div>
         <p>Priority: </p>
-        <input id="number-3" [value]="cardSelected.priority" >
+        <input id="number-3" [value]="cardSelected.priority" (change)="updatePriority($event)">
     </div>
     <mat-card-actions fxLayout fxLayoutAlign="end">
         <button id="number-1" mat-button class="btn btn-primary-outline pull-right" (click)="btnClick()">Read</button>

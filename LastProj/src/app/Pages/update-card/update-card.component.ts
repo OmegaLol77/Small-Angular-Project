@@ -24,6 +24,15 @@ export class UpdateCardComponent implements OnInit {
     console.log(flag.checked);
     this.cardSelected.readFlag = flag.checked;
   }
+  updateTitle(title:any){
+    this.cardSelected.title = title.target.value;
+  }
+  updateTextBody(body:any){
+    this.cardSelected.body = body.target.value;
+  }
+  updatePriority(priority:any){
+    this.cardSelected.priority = priority.value;
+  }
   btnClick(){
     this.cardService.updateCard(this.cardSelected).subscribe(() => {
       console.log("success");
