@@ -11,7 +11,7 @@ import { CardService } from 'src/app/Service/CardService/card.service';
 export class AddCardComponent {
 
   public card: Card = new Card();
-
+  public flag: boolean = false;
   constructor(private router : Router,private cardService:CardService) { }
 
   btnClick(s:string){
@@ -30,12 +30,20 @@ updatePriority(priority:any){
   this.card.priority = priority.value;
 }
 startObs(){
-  this.cardService.createCard(this.card).subscribe(() => {
-    console.log("success");
+  this.flag=false;
+  if(!!this.card.title && !!this.card.body && !!this.card.priority){
+    console.log("here")
+    this.cardService.createCard(this.card).subscribe(() => {
+      console.log("success");
+    }
+      , (err) => {
+        alert(err);
+      }),
+      this.router.navigate(['Pages/main-page']);
   }
-    , (err) => {
-      alert(err);
-    }),
-    this.router.navigate(['Pages/main-page']);
+  else{
+    console.log("here")
+    this.flag=true;
+  }
 }
 }

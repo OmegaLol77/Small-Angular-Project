@@ -7,34 +7,39 @@
     <mat-card-title fxLayout fxLayoutAlign="center center">Main Page</mat-card-title>
     <hr>
     <mat-card-actions fxLayout fxLayoutAlign="center center">
-        <button mat-button class="btn btn-primary-outline pull-right" (click)="btnClick('Pages/add-card');">Add New Card</button>
+        <button mat-button class="btn btn-primary-outline pull-right" (click)="btnClick('Pages/add-card');">Add New
+            Card</button>
         <div style="margin-right:20px"></div>
-        <button mat-button class="btn btn-primary-outline pull-right" (click)="btnClick('Pages/delete-card');">Delete Card</button>
-        <div style="margin-right:20px"></div>
-        <button mat-button class="btn btn-primary-outline pull-right" (click)="btnClick('Pages/update-card');">Update Card</button>
     </mat-card-actions>
 </mat-card>
 <div style="margin-top:20px"></div>
 <div>
-    <mat-card style="margin:0.25em;">
+    <mat-card>
         <mat-card-title fxLayout fxLayoutAlign="center center">Cards</mat-card-title>
         <hr>
         <mat-grid-list cols="2" rowHeight="4:1">
-            <mat-grid-tile *ngFor="let card of cardsList; let i = index" 
-            [ngClass] ="{'bodyClass1':card.readFlag ,'bodyClass2':!card.readFlag}" style="border-radius: 15px; border-style: solid;">
-            <p>
-                <mat-toolbar fxLayout fxLayoutAlign="center center" style="border-radius: 15px; border-style: ridge;">
-                  <span>{{card.title}}</span>
-                </mat-toolbar>
-              </p>
-                <p (click)="clicked(i);" >{{card.body}}</p>
+            <mat-grid-tile *ngFor="let card of cardsList; let i = index"
+                [ngClass]="{'bodyClass1':card.readFlag ,'bodyClass2':!card.readFlag}"
+                style="border-radius: 15px; border-style: solid;" >
+                <mat-icon style="font-size: 35px; align-self: flex-start; margin-right: 5px;" aria-hidden="false" aria-label="update"
+                (click)="btnUpdateClick('Pages/update-card',i);">update</mat-icon>
+                    <mat-icon style="font-size: 35px; align-self: flex-start;" aria-hidden="false" aria-label="delete_forever"
+                    (click)="clickRemove(i);">delete_forever</mat-icon>
+                <table>
+                    <tr>
+                        <th (click)="clicked(i);" fxLayout fxLayoutAlign="center center">{{card.title}}</th>
+                    </tr>
+
+                </table>
             </mat-grid-tile>
-          </mat-grid-list>
+        </mat-grid-list>
     </mat-card>
 </div>
 <mat-card style="margin:0.25em;">
     <mat-grid-list cols="2" rowHeight="30:1">
-        <mat-grid-tile class="bodyClass1" style="font-weight: bold; border-radius: 15px; border-style: solid;">This Collor Means Read</mat-grid-tile>
-        <mat-grid-tile class="bodyClass2" style="font-weight: bold; border-radius: 15px; border-style: solid;">This Collor Means Its Yet Not Read</mat-grid-tile>
-      </mat-grid-list>
+        <mat-grid-tile class="bodyClass1" style="font-weight: bold; border-radius: 15px; border-style: solid;">This
+            Collor Means Read</mat-grid-tile>
+        <mat-grid-tile class="bodyClass2" style="font-weight: bold; border-radius: 15px; border-style: solid;">This
+            Collor Means Its Yet Not Read</mat-grid-tile>
+    </mat-grid-list>
 </mat-card>

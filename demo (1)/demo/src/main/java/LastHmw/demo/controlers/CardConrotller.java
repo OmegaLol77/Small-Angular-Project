@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,15 +29,15 @@ public class CardConrotller {
 		return cardBL.getAllCards();
 	}
 	@PostMapping("createCard")
-	public boolean createCard(@RequestBody String jsonCard){
-		return cardBL.createCard(jsonCard);
+	public boolean createCard(@RequestBody Card card){
+		return cardBL.createCard(card);
 	}
-	@DeleteMapping("deleteCard")
-	public boolean deleteCard(int id) {
+	@DeleteMapping("/{id}/deleteCard")
+	public boolean deleteCard(@PathVariable("id") Integer id) {
 		return cardBL.deleteCard(id);
 	}
-	@PutMapping("updateCard")
-	public boolean updateCard(int id,String title,String body,int priority,boolean flag) {
-		return cardBL.updateCard(id,title,body,priority,flag);
+	@PutMapping("/{id}/updateCard")
+	public boolean updateCard(@RequestBody Card card) {
+		return cardBL.updateCard(card);
 	}
 }

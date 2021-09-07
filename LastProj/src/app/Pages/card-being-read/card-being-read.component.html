@@ -1,24 +1,35 @@
 <mat-card id="number-0" style="margin-left:20em; margin-right:20em; margin-top:20em;">
     <mat-card-title fxLayout fxLayoutAlign="center center">Card Information</mat-card-title>
+    <hr>
+    <mat-card>
+        <mat-card-content>
+            <label id="number-4" fxLayout fxLayoutAlign="center center" class="example-margin">Read Or Not:</label>
+            <section fxLayout fxLayoutAlign="center center" class="example-section">
+                Not Read
+                <div style="margin-left: 7.5px;"></div>
+                <mat-slide-toggle [checked]="cardSelected.readFlag" (change)="slided($event)"> Read</mat-slide-toggle>
+            </section>
+        </mat-card-content>
+    </mat-card>
+    <div style="margin-top:20px"></div>
     <form class="example-full-width" style="margin:auto;">
-        <mat-form-field class="example-full-width" appearance="fill" >
+        <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Please Enter Card Title:</mat-label>
-            <input matInput placeholder="Title" value="Title">
+            <input disabled matInput placeholder="Title" [value]="cardSelected.title">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill" >
+        <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Leave a comment</mat-label>
-            <textarea maxlength="10000" matInput placeholder="Ex. It makes me feel..." style="height: 200px; " ></textarea>
+            <textarea disabled maxlength="10000" matInput placeholder="Ex. It makes me feel..."
+                [value]="cardSelected.body"></textarea>
         </mat-form-field>
     </form>
-    <div style="margin-left:2.55em;">
-        <p>Priority:</p>
-        <mat-slider style="margin-right:20px" thumbLabel [displayWith]="formatLabel" tickInterval="1" step="1" min="1"
-            max="5" aria-label="units">
-        </mat-slider>
+    <div>
+        <p>Priority: </p>
+        <input id="number-3" disabled [value]="cardSelected.priority">
     </div>
     <mat-card-actions fxLayout fxLayoutAlign="end">
-        <button id="number-1" mat-button class="btn btn-primary-outline pull-right">Read</button>
+        <button id="number-1" mat-button class="btn btn-primary-outline pull-right" (click)="btnClick()">Read</button>
         <div style="margin-right:20px"></div>
     </mat-card-actions>
 </mat-card>

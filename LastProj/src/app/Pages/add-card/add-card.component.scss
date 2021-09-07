@@ -21,6 +21,13 @@
   #number-1:focus{
     box-shadow: inset 0 0 0 2em var(--hover);
   }
+  hr{
+    border: 2px solid;
+  }
+  small{
+    color: #FF0000;
+    font-weight: bold;
+  }
   #number-1{
       width: 70px;
       height: 35px;

@@ -22,8 +22,9 @@ export class WebServiceService {
   });
   constructor(private httpClient: HttpClient) {
   }
-
-
+  public putJSON<T>(apiRoute: string, data: string): Observable<T> {
+    return this.httpClient.put<T>(`${this.ROOT_URL + apiRoute}`, data);
+  }
   public post<T>(apiRoute: string, data: Map<string, any>): Observable<T> {
     let params = HttpParamsGenerator.insertParams(data);
     let options = { params: params };

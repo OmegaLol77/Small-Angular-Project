@@ -1,0 +1,48 @@
+.example-form {
+    min-width: 500px;
+    max-width: 500px;
+    width: 100%;
+}
+hr{
+    border: 2px solid;
+  }
+.example-full-width {
+    width: 100%;
+}
+mat-toolbar {
+    background-color: grey;
+    border-radius: 15px;
+}
+#number-0 {
+    padding-top: auto;
+}
+textarea{
+    min-height: 300px; 
+}
+#number-3{
+    text-align: center;
+    width: 40px;
+}
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 10px;
+  }
+  #number-4{
+    font-weight: bold;
+    font-size: 25px;
+  }input[disabled] {
+    color: black;
+ }
+ textarea[disabled] {
+    color: black;
+ }

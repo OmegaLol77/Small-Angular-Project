@@ -23,13 +23,11 @@ public class CardBL {
 		return cardRepo.findAll();
 	}
 	
-	public boolean createCard(String jsonCard) {
-		ObjectMapper mapper = new ObjectMapper();
+	public boolean createCard(Card card) {
 		try {
-			Card card = mapper.readValue(jsonCard, Card.class);
 			cardRepo.save(card);
 			return true;
-		}catch(Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -44,13 +42,8 @@ public class CardBL {
 		}
 	}
 
-	public boolean updateCard(int id,String title, String body, int priority, boolean flag) {
+	public boolean updateCard(Card card) {
 		try {
-			Card card = cardRepo.getById(id);
-			card.setBody(body);
-			card.setPriority(priority);
-			card.setReadFlag(flag);
-			card.setTitle(title);
 			cardRepo.save(card);
 			return true;
 		}catch(Exception e) {

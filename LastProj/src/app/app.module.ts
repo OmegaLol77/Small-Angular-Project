@@ -17,6 +17,12 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { CardBeingReadComponent } from './Pages/card-being-read/card-being-read.component';
+import {MatListModule} from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { CardBeingReadComponent } from './Pages/card-being-read/card-being-read.
     MatSliderModule,
     MatToolbarModule,
     HttpClientModule,
+    MatListModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

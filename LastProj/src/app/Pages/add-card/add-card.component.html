@@ -20,17 +20,20 @@
     <mat-card-title fxLayout fxLayoutAlign="center center">Card Information</mat-card-title>
     <hr>
     <form class="example-full-width" style="margin:auto;">
+        <small *ngIf="flag" class="form-text text-muted text-danger" style="font-weight: bold;">
+            Error:</small>
+        <small *ngIf="flag" class="form-text text-muted text-danger" style="font-weight: bold;">
+            All Fields Must Be Filled With Content</small>
         <mat-form-field class="example-full-width" appearance="fill" >
             <mat-label>Please Enter Card Title:</mat-label>
             <input matInput placeholder="Title" value="Title" (change)="updateTitle($event)">
         </mat-form-field>
-
         <mat-form-field class="example-full-width" appearance="fill" >
             <mat-label>Leave a comment</mat-label>
             <textarea maxlength="10000" matInput placeholder="Ex. It makes me feel..." style="height: 200px; "  (change)="updateTextBody($event)"></textarea>
         </mat-form-field>
     </form>
-    <div style="margin-left:2.55em;">
+    <div >
         <p>Priority:</p>
         <mat-slider style="margin-right:20px" thumbLabel [displayWith]="formatLabel" tickInterval="1" step="1" min="1"
             max="5" aria-label="units" (change)="updatePriority($event)">

@@ -4,13 +4,10 @@ table {
 .bodyClass1 {
   background: #00ff00;
   font-size: 1.75rem;
-  margin: 20px;
 }
 .bodyClass2 {
   background: #fffdd0;
   font-size: 1.75rem;
-  margin: 20px;
-  
 }
 mat-toolbar {
   font-size: 2.5rem;
@@ -22,4 +19,7 @@ p {
 }
 mat-card-title{
   font-size: 2.5rem;
+}
+hr{
+  border: 2px solid;
 }
