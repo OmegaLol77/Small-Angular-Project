@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { WebServiceService } from '../WebService/web-service.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Card } from 'src/app/Module/Card';
 import { catchError } from 'rxjs/operators';
 
@@ -20,9 +20,10 @@ export class CardService {
     }else{
       console.error('Server Side Error : ', errorResponse);
     }
+    return throwError('');
   }
   public getAllCards(): Observable<Card[]> {
-    return this.httpClient.get<Card[]>("http://localhost:8084/card/getAllCards/");
+    return this.httpClient.get<Card[]>("http://localhost:8084/card/getAllCards/").pipe(catchError(this.handlerError));
   }
 
   public createCard(card: Card): Observable<Card> {
@@ -30,7 +31,7 @@ export class CardService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    });
+    }).pipe(catchError(this.handlerError));
   }
 
   public updateCard(card: Card): Observable<boolean> {
@@ -38,11 +39,11 @@ export class CardService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    });
+    }).pipe(catchError(this.handlerError));
   }
   public deleteCard(id?: number): Observable<boolean> {
 
-    return this.httpClient.delete<boolean>(`${'http://localhost:8084/card'}/${id}/${'deleteCard/'}`);
+    return this.httpClient.delete<boolean>(`${'http://localhost:8084/card'}/${id}/${'deleteCard/'}`).pipe(catchError(this.handlerError));
   }
   public getCardSelected() {
     return this.cardSelected;

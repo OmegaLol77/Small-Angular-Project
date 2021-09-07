@@ -23,7 +23,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-
+import { Observable } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +52,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatRadioModule,
     BrowserAnimationsModule,
     MatIconModule,
+    Observable,
   ],
   providers: [],
   bootstrap: [AppComponent]

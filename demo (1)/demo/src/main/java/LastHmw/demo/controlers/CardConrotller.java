@@ -37,7 +37,7 @@ public class CardConrotller {
 		return cardBL.deleteCard(id);
 	}
 	@PutMapping("/{id}/updateCard")
-	public boolean updateCard(@RequestBody Card card) {
+	public boolean updateCard(@PathVariable("id") Integer id,@RequestBody Card card) {
 		return cardBL.updateCard(card);
 	}
 }
