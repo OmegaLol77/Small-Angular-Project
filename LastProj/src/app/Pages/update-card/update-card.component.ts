@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/Module/Card';
 import { CardService } from 'src/app/Service/CardService/card.service';
 import { Router } from '@angular/router';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-update-card',
@@ -11,7 +11,8 @@ import {ThemePalette} from '@angular/material/core';
 })
 export class UpdateCardComponent implements OnInit {
   public cardSelected: Card = new Card();
-  color: ThemePalette = 'accent';
+
+  public flag: boolean = false;
   constructor(private router: Router, private cardService: CardService) { }
 
   ngOnInit(): void {
@@ -20,26 +21,35 @@ export class UpdateCardComponent implements OnInit {
   formatLabel() {
     return 2;
   }
-  slided(flag:any){
+  slided(flag: any) {
     console.log(flag.checked);
     this.cardSelected.readFlag = flag.checked;
   }
-  updateTitle(title:any){
+  updateTitle(title: any) {
     this.cardSelected.title = title.target.value;
   }
-  updateTextBody(body:any){
+  updateTextBody(body: any) {
     this.cardSelected.body = body.target.value;
   }
-  updatePriority(priority:any){
-    this.cardSelected.priority = priority.value;
-  }
-  btnClick(){
-    this.cardService.updateCard(this.cardSelected).subscribe(() => {
-      console.log("success");
-      this.router.navigate(['Pages/main-page']);
+  updatePriority(priority: any) {
+    if (priority.target.value <= 5 && priority.target.value > 0) {
+      this.flag = false;
+      console.log(this.flag + "right")
+      this.cardSelected.priority = priority.target.value;
+    } else {
+      this.flag = true;
+      console.log(this.flag + "not right")
     }
-      , (err) => {
-        alert(err);
-      });
-};
+  }
+  btnClick() {
+    if (this.flag == false) {
+      this.cardService.updateCard(this.cardSelected).subscribe(() => {
+        console.log("success");
+        this.router.navigate(['Pages/main-page']);
+      }
+        , (err) => {
+          alert(err);
+        });
+    }
+  };
 }

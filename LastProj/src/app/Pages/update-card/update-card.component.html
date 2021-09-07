@@ -12,6 +12,8 @@
         </mat-card-content>
     </mat-card>
     <div style="margin-top:20px"></div>
+    <small *ngIf="flag" class="form-text text-muted text-danger" style="font-weight: bold;">
+        Error: Priority must be Between 1-5!!</small>
     <form class="example-full-width" style="margin:auto;">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Please Enter Card Title:</mat-label>
@@ -26,10 +28,10 @@
     </form>
     <div>
         <p>Priority: </p>
-        <input id="number-3" [value]="cardSelected.priority" (change)="updatePriority($event)">
+        <input id="number-3" [value]="cardSelected.priority" (keyup)="updatePriority($event)">
     </div>
     <mat-card-actions fxLayout fxLayoutAlign="end">
-        <button id="number-1" mat-button class="btn btn-primary-outline pull-right" (click)="btnClick()">Read</button>
+        <button id="number-1" mat-button class="btn btn-primary-outline pull-right" (click)="btnClick()">Save</button>
         <div style="margin-right:20px"></div>
     </mat-card-actions>
 </mat-card>
