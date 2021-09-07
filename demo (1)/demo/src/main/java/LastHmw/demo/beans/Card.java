@@ -1,5 +1,6 @@
 package LastHmw.demo.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +12,8 @@ public class Card {
 	@GeneratedValue
 	private int id;
 	private String title;
+	
+	@Column(length = 10000)
 	private String body;
 	private int priority;
 	private boolean readFlag=false;
@@ -22,6 +25,7 @@ public class Card {
 		this.title = title;
 		this.body = body;
 		this.readFlag = readFlag;
+		this.priority = priority;
 	}
 	public String getTitle() {
 		return title;

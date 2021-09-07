@@ -37,22 +37,13 @@
     background-color: #FF0000;
     border-radius: 3.5px;
 }
-  $colors: (
-  fill: #008000,
-  full: #B22222,
-);
-@each $button, $color in $colors {
-    .#{$button} {
-      --color: #{$color};
-      --hover: #{adjust-hue($color, 45deg)};
-    }
-  }
-  button {  
-    color: var(--color);
-    transition: 0.01s;
-    &:hover,
-    &:focus { 
-      border-color: var(--hover);
-      color: black;
-    }
-  }
+
+button {  
+  color: var(--color);
+  transition: 0.01s;
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: black;
+   }
+}

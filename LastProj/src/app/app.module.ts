@@ -15,7 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { HttpClientModule } from '@angular/common/http';
+import { CardBeingReadComponent } from './Pages/card-being-read/card-being-read.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AddCardComponent,
     UpdateCardComponent,
     DeleteCardComponent,
+    CardBeingReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatGridListModule,
     MatSliderModule,
     MatToolbarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

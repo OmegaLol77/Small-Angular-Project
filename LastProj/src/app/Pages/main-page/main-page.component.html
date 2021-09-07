@@ -5,7 +5,7 @@
 </mat-toolbar-row> -->
 <mat-card>
     <mat-card-title fxLayout fxLayoutAlign="center center">Main Page</mat-card-title>
-    <!-- <mat-card-subtitle></mat-card-subtitle> -->
+    <hr>
     <mat-card-actions fxLayout fxLayoutAlign="center center">
         <button mat-button class="btn btn-primary-outline pull-right" (click)="btnClick('Pages/add-card');">Add New Card</button>
         <div style="margin-right:20px"></div>
@@ -19,10 +19,22 @@
     <mat-card style="margin:0.25em;">
         <mat-card-title fxLayout fxLayoutAlign="center center">Cards</mat-card-title>
         <hr>
-        <ul>
-            <!-- <li *ngFor="let Card of Cards">
-
-            </li> -->
-        </ul>
+        <mat-grid-list cols="2" rowHeight="4:1">
+            <mat-grid-tile *ngFor="let card of cardsList; let i = index" 
+            [ngClass] ="{'bodyClass1':card.readFlag ,'bodyClass2':!card.readFlag}" style="border-radius: 15px; border-style: solid;">
+            <p>
+                <mat-toolbar fxLayout fxLayoutAlign="center center" style="border-radius: 15px; border-style: ridge;">
+                  <span>{{card.title}}</span>
+                </mat-toolbar>
+              </p>
+                <p (click)="clicked(i);" >{{card.body}}</p>
+            </mat-grid-tile>
+          </mat-grid-list>
     </mat-card>
 </div>
+<mat-card style="margin:0.25em;">
+    <mat-grid-list cols="2" rowHeight="30:1">
+        <mat-grid-tile class="bodyClass1" style="font-weight: bold; border-radius: 15px; border-style: solid;">This Collor Means Read</mat-grid-tile>
+        <mat-grid-tile class="bodyClass2" style="font-weight: bold; border-radius: 15px; border-style: solid;">This Collor Means Its Yet Not Read</mat-grid-tile>
+      </mat-grid-list>
+</mat-card>

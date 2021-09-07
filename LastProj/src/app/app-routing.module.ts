@@ -4,6 +4,7 @@ import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { AddCardComponent } from './Pages/add-card/add-card.component';
 import { DeleteCardComponent } from './Pages/delete-card/delete-card.component';
 import { UpdateCardComponent } from './Pages/update-card/update-card.component';
+import { CardBeingReadComponent } from './Pages/card-being-read/card-being-read.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [{
 {
   path: 'Pages/delete-card',
   component: DeleteCardComponent
+},
+{
+  path: 'Pages/card-being-read',
+  component: CardBeingReadComponent
 },
 {
   path: 'Pages/add-card',
