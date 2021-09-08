@@ -42,7 +42,8 @@ export class MainPageComponent implements OnInit {
     let obsCards = this.cardService.deleteCard(this.cardSelected.id);
     obsCards.subscribe(() => {
       console.log("success");
-      this.router.navigate(['Pages/delete-card']);
+      this.cardsList.splice(i,1);
+      this.router.navigate(['Pages/main-page']);
     }, (error) => {
       alert("Error in loading cards"+error);
     });
